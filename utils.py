@@ -7,7 +7,6 @@ from collections import Counter
 from Rec_models.utils import *
 
 def get_grpo_rewards(tensor):
-    """ tensor: [group_num x time_step x batch_size x 1] """
     return (tensor - torch.mean(tensor, dim=0, keepdim=True)) / (torch.std(tensor, dim=0, keepdim=True) + 1e-7)
 
 def t_padding(seq, max_seq_length):
